@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SendEmail",
+            "Effect": "Allow",
+            "Action": ["lambda:InvokeFunction","ses:SendRawEmail"],
+            "Resource": [ 
+                "arn:aws:ses:*:475600362560:identity/*",
+                "arn:aws:lambda:*:475600362560:function:*"]
+        },
+        {
+            "Sid": "LambdaTaskExecutionPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "tag:GetResources",
+                "ses:VerifyEmailIdentity",
+                "ec2:DescribeRegions",
+                "ses:ListVerifiedEmailAddresses"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
